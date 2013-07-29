@@ -1,0 +1,31 @@
+.\"	Man page for the edid-decode tool from xorg
+.\"	written for Mageia
+.TH EDID-DECODE 1 "December 2012" ""  ""
+.SH NAME
+edid-decode - print EDID display characteristics in text form
+
+.SH SYNOPSIS
+.B
+edid-decode
+[
+.I
+infile
+[
+.I
+outfile
+] ]
+
+.SH DESCRIPTION
+.I
+Edid-decode
+is a utility for displaying Extended Display Identification Data (EDID) as supplied by 
+computer monitors and other displays connected through VGA, DVI, HDMI, or 
+DisplayPort. It shows the allowed video modes for the display as well as
+the supported audio formats, if present in the EDID.
+
+When called without arguments, 
+.I
+edid-decode 
+reads an EDID from stdin and writes the decoded display information to 
+stdout. Optionally, files can be used instead, either for EDID input only or for both 
+input and output.

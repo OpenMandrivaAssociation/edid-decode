@@ -1,0 +1,18 @@
+diff -p -up edid-decode/Makefile.bak edid-decode/Makefile
+--- edid-decode/Makefile.bak	2012-12-19 11:21:32.000000000 +0100
++++ edid-decode/Makefile	2012-12-19 11:32:47.626093500 +0100
+@@ -1,13 +1,10 @@
+-# ZSH OR DIE, PUNKS
+-
+ bindir ?= /usr/bin
+ 
+ edid-decode: edid-decode.c
+-	$(CC) -g -Wall -o $@ $<
++	$(CC) $(CFLAGS) -o $@ $<
+ 
+ clean:
+ 	rm -f edid-decode
+-	-echo rm -f edid-decode **/*.jx | zsh -s
+ 
+ install:
+ 	mkdir -p $(DESTDIR)$(bindir)
