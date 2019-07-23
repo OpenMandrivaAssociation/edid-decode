@@ -2,8 +2,8 @@
 
 Summary:	EDID parse tool
 Name:		edid-decode
-Version:	0
-Release:	0.%{git}.1
+Version:	20170207
+Release:	1
 License:	MIT
 Group:		System/X11
 Url:		http://cgit.freedesktop.org/xorg/app/edid-decode/
