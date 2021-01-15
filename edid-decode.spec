@@ -3,7 +3,7 @@
 Summary:	EDID parse tool
 Name:		edid-decode
 Version:	20170207
-Release:	1
+Release:	2
 License:	MIT
 Group:		System/X11
 Url:		http://cgit.freedesktop.org/xorg/app/edid-decode/
@@ -28,10 +28,10 @@ and the audio info often provided by HDMI displays.
 %patch2 -p1 -b .strings
 
 %build
-%make CFLAGS="%{optflags}"
+%make_build CFLAGS="%{optflags}"
 
 %install
-%makeinstall_std
+%make_install
 mkdir -p %{buildroot}%{_mandir}/man1
 install -m 0644 %{SOURCE1} %{buildroot}%{_mandir}/man1
 
