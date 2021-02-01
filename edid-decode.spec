@@ -1,21 +1,13 @@
-%define git	20120926
-
 Summary:	EDID parse tool
 Name:		edid-decode
-Version:	20170207
-Release:	2
+Version:	20210201
+Release:	1
 License:	MIT
 Group:		System/X11
-Url:		http://cgit.freedesktop.org/xorg/app/edid-decode/
-# git clone git://anongit.freedesktop.org/xorg/app/edid-decode
-# tar c -j --exclude=.git --exclude=.gitignore -f edid-decode-%{git}.tar.bz2 edid-decode
-Source0:	%{name}-%{git}.tar.bz2
-# (cjw) add a basic man page
-Source1:	edid-decode.1
-# (cjw) use CFLAGS to compile source file
-Patch1:		edid-decode-makefile.patch
-# (cjw) fix string parsing
-Patch2:		edid-decode-extract-string.patch
+Url:		https://git.linuxtv.org/edid-decode.git/
+# git clone https://git.linuxtv.org//edid-decode.git/ && cd edid-decode
+# git archive --prefix=edid-decode-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../edid-decode-$(date +%Y%m%d).tar.xz
+Source0:	%{name}-%{version}.tar.xz
 
 %description
 The edid-decode tool parses a given EDID from a file or stdin and
@@ -23,19 +15,15 @@ shows the contents on stdout. It handles both the regular video info
 and the audio info often provided by HDMI displays.
 
 %prep
-%setup -q -n %{name}
-%patch1 -p1 -b .cleanup
-%patch2 -p1 -b .strings
+%autosetup -n %{name}-%{version} -p1
 
 %build
-%make_build CFLAGS="%{optflags}"
+%set_build_flags
+%make_build
 
 %install
 %make_install
-mkdir -p %{buildroot}%{_mandir}/man1
-install -m 0644 %{SOURCE1} %{buildroot}%{_mandir}/man1
 
 %files
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1.*
-
