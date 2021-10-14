@@ -1,7 +1,7 @@
 Summary:	EDID parse tool
 Name:		edid-decode
 Version:	20210201
-Release:	1
+Release:	2
 License:	MIT
 Group:		System/X11
 Url:		https://git.linuxtv.org/edid-decode.git/
@@ -26,4 +26,4 @@ and the audio info often provided by HDMI displays.
 
 %files
 %{_bindir}/%{name}
-%{_mandir}/man1/%{name}.1.*
+%doc %{_mandir}/man1/%{name}.1.*
