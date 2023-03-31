@@ -1,7 +1,7 @@
 Summary:	EDID parse tool
 Name:		edid-decode
 Version:	20210201
-Release:	2
+Release:	3
 License:	MIT
 Group:		System/X11
 Url:		https://git.linuxtv.org/edid-decode.git/
